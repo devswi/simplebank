@@ -50,7 +50,7 @@ func EqCreateUserParams(arg db.CreateUserParams, password string) gomock.Matcher
 }
 
 func TestCreateUserAPI(t *testing.T) {
-	user, password := randomeUser(t)
+	user, password := randomUser(t)
 
 	testCases := []struct {
 		name          string
@@ -198,7 +198,7 @@ func TestCreateUserAPI(t *testing.T) {
 	}
 }
 
-func randomeUser(t *testing.T) (user db.User, password string) {
+func randomUser(t *testing.T) (user db.User, password string) {
 	password = util.RandomString(6)
 	hashedPassword, err := util.HashPassword(password)
 	require.NoError(t, err)
